@@ -10,7 +10,6 @@
 | `vanilla/` | HTML、CSS、原生 JavaScript 的完整版本 |
 | `react/` | 用 React 重做新增、完成／取消完成、刪除 |
 
-`證據/` 只放本機截圖，沒有放進這個 repository。
 
 ## html
 
