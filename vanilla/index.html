@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>My Task Manager</h1>
+    </header>
+
+    <main>
+
+        <section class="task-input-section">
+            <h2>新增任務</h2>
+    
+            <label for="taskInput">任務名稱：</label>
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="請輸入任務"
+            >
+    
+            <button type="button" id="addTaskBtn">新增</button>
+        </section>
+    
+    
+        <section class="filter-section">
+            <h2>篩選</h2>
+    
+            <button type="button" class="filter-btn" data-filter="all">全部</button>
+            <button type="button" class="filter-btn" data-filter="pending">未完成</button>
+            <button type="button" class="filter-btn" data-filter="completed">已完成</button>
+        </section>
+    
+    
+        <section class="task-list-section">
+            <h2>任務清單</h2>
+    
+            <ul id="taskList">
+                <li>
+                    <input type="checkbox">
+                    <span class="task-text">完成 Web App 實作</span>
+                    <button type="button">刪除</button>
+                </li>
+    
+                <li>
+                    <input type="checkbox">
+                    <span class="task-text">完成 JavaScript 練習</span>
+                    <button type="button">刪除</button>
+                </li>
+    
+                <li>
+                    <input type="checkbox" checked>
+                    <span class="task-text">完成課程作業</span>
+                    <button type="button">刪除</button>
+                </li>
+            </ul>
+        </section>
+    
+    
+        <section class="stats-section">
+            <h2>任務統計</h2>
+    
+            <p id="totalCount">共 3 項</p>
+            <p id="pendingCount">未完成 2 項</p>
+            <p id="completedCount">已完成 1 項</p>
+        </section>
+    
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My React Task Manager</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        function App() {
+            const [tasks, setTasks] = useState([]);
+            const [taskText, setTaskText] = useState("");
+
+            function addTask() {
+                const text = taskText.trim();
+
+                if (text === "") {
+                    return;
+                }
+
+                const newTask = {
+                    id: Date.now(),
+                    text: text,
+                    completed: false
+                };
+
+                setTasks([...tasks, newTask]);
+                setTaskText("");
+            }
+
+            function toggleTask(id) {
+                const newTasks = tasks.map(function (task) {
+                    if (task.id === id) {
+                        return {
+                            ...task,
+                            completed: !task.completed
+                        };
+                    }
+
+                    return task;
+                });
+
+                setTasks(newTasks);
+            }
+
+            function deleteTask(id) {
+                const newTasks = tasks.filter(function (task) {
+                    return task.id !== id;
+                });
+
+                setTasks(newTasks);
+            }
+
+            return (
+                <div>
+                    <h1>My React Task Manager</h1>
+
+                    <input
+                        type="text"
+                        value={taskText}
+                        onChange={function (event) {
+                            setTaskText(event.target.value);
+                        }}
+                        placeholder="請輸入任務"
+                    />
+
+                    <button onClick={addTask}>
+                        新增
+                    </button>
+
+                    <ul>
+                        {tasks.map(function (task) {
+                            return (
+                                <li key={task.id}>
+                                    <input
+                                        type="checkbox"
+                                        checked={task.completed}
+                                        onChange={function () {
+                                            toggleTask(task.id);
+                                        }}
+                                    />
+
+                                    <span
+                                        style={{
+                                            textDecoration: task.completed
+                                                ? "line-through"
+                                                : "none"
+                                        }}
+                                    >
+                                        {task.text}
+                                    </span>
+
+                                    <button
+                                        onClick={function () {
+                                            deleteTask(task.id);
+                                        }}
+                                    >
+                                        刪除
+                                    </button>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(
+            document.getElementById("root")
+        );
+
+        root.render(<App />);
+    </script>
+</body>
+
+</html>

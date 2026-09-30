@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Task Manager</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>My Task Manager</h1>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>新增任務</h2>
+
+            <label for="taskInput">任務名稱：</label>
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="請輸入任務"
+            >
+
+            <button type="button">新增</button>
+        </section>
+
+
+        <section>
+            <h2>篩選</h2>
+
+            <button type="button">全部</button>
+            <button type="button">未完成</button>
+            <button type="button">已完成</button>
+        </section>
+
+
+        <section>
+            <h2>任務清單</h2>
+
+            <ul>
+                <li>
+                    <input type="checkbox">
+                    完成 Web App 實作
+                    <button type="button">刪除</button>
+                </li>
+
+                <li>
+                    <input type="checkbox">
+                    完成 JavaScript 練習
+                    <button type="button">刪除</button>
+                </li>
+
+                <li>
+                    <input type="checkbox" checked>
+                    完成課程作業
+                    <button type="button">刪除</button>
+                </li>
+            </ul>
+        </section>
+
+
+        <section>
+            <h2>任務統計</h2>
+
+            <p>共 3 項</p>
+            <p>未完成 2 項</p>
+            <p>已完成 1 項</p>
+        </section>
+
+    </main>
+
+</body>
+
+</html>
